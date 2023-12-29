@@ -1,0 +1,70 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: μVision V5.24.2.0
+Copyright (C) 2017 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Zhang San, Zhang, LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.24.1
+Toolchain Path:  F:\Keil5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 5 (build 528)
+Assembler:       Armasm.exe V5.06 update 5 (build 528)
+Linker/Locator:  ArmLink.exe V5.06 update 5 (build 528)
+Library Manager: ArmAr.exe V5.06 update 5 (build 528)
+Hex Converter:   FromElf.exe V5.06 update 5 (build 528)
+CPU DLL:         SARMCM3.DLL V5.24.1
+Dialog DLL:      DARMSTM.DLL V1.68.0.0
+Target DLL:      Segger\JL2CM3.dll V2.99.26.0
+Dialog DLL:      TARMSTM.DLL V1.66.0.0
+ 
+<h2>Project:</h2>
+F:\BaiduNetdiskDownload\wifi-esp8266\4-向电脑网络助手上传 DHT11 温湿度副本20221010-多通道dma -2022年10月13日尝试拓展两个dma\3-向电脑网络助手上传 DHT11 温湿度副本20220423\3-向电脑网络助手上传 DHT11 温湿度\Project\RVMDK（uv4）\iSO-STM32.uvprojx
+Project File Date:  07/05/2022
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 5 (build 528)', folder: 'F:\Keil5\ARM\ARMCC\Bin'
+Build target 'WF-ESP8266'
+compiling main.c...
+..\..\Libraries\wenchao_lib\inc\adc_dma.h(9): warning:  #1295-D: Deprecated declaration Adc_dma_Init - give arg types
+  void Adc_dma_Init(); 
+..\..\User\main.c: 1 warning, 0 errors
+compiling stm32f10x_it.c...
+compiling test.c...
+..\..\User\Test\test.c(35): warning:  #177-D: variable "TU_value"  was declared but never referenced
+        float TU_value=0.0;
+..\..\User\Test\test.c(80): warning:  #177-D: variable "TDS"  was declared but never referenced
+        float TDS=0.0,TDS_voltage;
+..\..\User\Test\test.c: 2 warnings, 0 errors
+linking...
+Program Size: Code=16136 RO-data=336 RW-data=64 ZI-data=2056  
+FromELF: creating hex file...
+"..\..\Output\Template.axf" - 0 Error(s), 3 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.0.1.pack
+                ARM.CMSIS.5.0.1
+                CMSIS (Cortex Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.0.1
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32F1xx_DFP.2.2.0.pack
+                Keil.STM32F1xx_DFP.2.2.0
+                STMicroelectronics STM32F1 Series Device Support, Drivers and Examples
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\_WF-ESP8266
+  F:\Keil5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include
+  F:\Keil5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.0.1
+Build Time Elapsed:  00:00:17
+</pre>
+</body>
+</html>

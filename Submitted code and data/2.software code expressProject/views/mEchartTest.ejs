@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Echart Test made by aJanm</title>
+    <link href="/stylesheets/bootstrap.css" rel="stylesheet"/>
+    <script src="/javascripts/bootstrap.js"></script>
+    <script src="/javascripts/jquery-1.12.4.js"></script>
+    <script src="/javascripts/echarts.min.js"></script>
+</head>
+<body>
+    <div class="col-md-4 col-sm-12" id='mChart' style="width: 400px;height:400px;"></div>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            console.log("jqurey test");
+            var mChart = echarts.init(document.getElementById("mChart"));
+
+            var option = {
+                title:{
+                    test:"my first test of EChart"
+                },
+                tooltip:{},
+                legend:{
+                    data:['温度']
+                },
+                xAxis:{
+                    data:["星期一","星期二","星期三"]
+                },
+                yAxis:{
+
+                },
+                series:[{
+                    name:"温度",
+                    type:"bar",
+                    data:[15,25,32]
+                }]
+            };
+            mChart.setOption(option);
+        })
+    </script>
+</body>
+</html>

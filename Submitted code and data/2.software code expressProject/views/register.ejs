@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="/stylesheets/bootstrap.css" rel="stylesheet"/>
+    <link href="/stylesheets/my.css" rel="stylesheet"/>
+    <!--
+        注意引入css文件时，要使用link属性，而不是script，并且link一般单独出现
+    -->
+    <script src="/javascripts/bootstrap.js"></script>
+    <script src="/javascripts/jquery-1.12.4.js"></script>
+    <script src="/javascripts/my.js"></script>
+    <script src="/javascripts/registerAlogin.js"></script>
+    <!-- 关于链接的引用，之前老是出现
+        Failed to load resource: the server responded with a status of 404 (Not Found)
+        的错误，然后我便参考它自己里index.ejs中文件的引用
+     -->
+     <!-- <script type="text/javascript">
+        function display_alert(){
+        //     $.ajax({
+        //     url: 'http://127.0.0.1:3000/register',
+        //     dataType: 'json',
+        //     type: 'get',
+        //     data: {
+        //         test: 'ajax'
+        //     },
+        //     success: function (data) {
+        //         console.log(data);
+        //     }
+        // })
+        alert(msg);
+   
+        }
+     </script> -->
+     <style type="text/css">
+        .body{
+            margin: 0;
+            padding: 0;
+            background: url("/images/orange3.jpg") no-repeat center 0px;
+            background-size: cover;  
+            background-position: center 0;
+            background-attachment: fixed;
+
+            -webkit-background-size: cover;  
+            -o-background-size: cover;  
+            -moz-background-size: cover;  
+            -ms-background-size: cover;
+            /* no-repeat:保证当屏幕缩小时，不会有多张背景图片出现
+            background-attachment: fixed;保证在使用no-repeat后，即不会有多张背景图片出现时，当屏幕缩小时下方不会出现白边
+            background-size: cover保证-把背景图片放大到适合元素容器的尺寸，图片比例不变，
+            但是要注意，超出容器的部分可能会裁掉。
+            倒数四句是为了保证兼容性
+             */
+        }
+    </style>
+    <title>the multi-sensor water quality monitoring system based on outlier data analysis</title>
+</head>
+<body class="body">
+
+<div class="container">
+    
+    <div class="row" style="margin-top:15px">
+        <div class="col-xs-10 col-xs-offset-2 col-sm-8 col-sm-offset-3 col-md-6  col-md-offset-4" id="registerBox">
+            <!-- <form role="form" action="/users/register" method="POST" > -->
+                <form role="form" action="/users/register" method="POST" >
+                <!-- 这里的/users/register是指routers下的uesr.js文件中的register接口 -->
+                <fieldset style="width:75%">
+                    <legend>Register</legend>
+                    <h2 alignment="center">Welcome to the multi-sensor water quality monitoring system based on outlier data analysis</h2>
+                    <!-- <hr class="colorgraph" > -->
+                    <div class="form-group" style="margin-top: 20px;" >
+                        <input type="text" name="usrname" id="usrname" class="form-control input-lg" placeholder="Please enter your account">
+                        <p style="font-size: 15px;"><%= account %></p>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Please enter password">
+                        <p style="font-size: 15px;"><%= password%></p>
+                        
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password2" id ="password2" class="form-control input-lg" placeholder="Please enter your password again">
+                        <p style="font-size: 15px;"><%= repassword%></p>
+                       
+                    </div>
+                    
+				</span>
+                    <!-- <hr class="colorgraph"> -->
+                    <div class="row" >
+                        <!-- 把下面col-xs-6全部改成12 -->
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <input type="submit" class="btn btn-lg btn-primary btn-block"  value="Register">
+                        </div>
+                        <!-- <div class="col-xs-6 col-sm-6 col-md-6">
+                            <a href="/login" class="btn btn-lg btn-primary btn-block">注册</a>
+                        </div> -->
+                        <div class="col-xs-6 col-lg-offset-4  col-sm-6 col-lg-offset-4 col-md-6 col-lg-offset-4">
+                            Existing account, <a href="/login">click to log in</a>
+                        </div>
+                    </div>
+                    
+                </fieldset>
+            </form>
+            
+        </div>
+        
+    </div>
+
+</div>
+
+
+</body>
+</html>

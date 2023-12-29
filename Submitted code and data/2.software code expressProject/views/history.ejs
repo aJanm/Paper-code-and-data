@@ -1,0 +1,324 @@
+<%- include head.ejs %>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-lg-2 col-md-4 col-sm-6" style="padding-top:180px;padding-bottom: 180px; background-color:rgb(233,255,253);">
+			<%- include navLeft.ejs%>
+		</div>
+		<div class="col-lg-10 col-md-8 col-sm-6">
+			<ol class="breadcrumb">
+				<li>Sensor data management</li>
+				<li>Historical data</li>
+			</ol>
+			
+			<div class="panel panel-default">
+				<div class="panel-heading" style="background-color:rgb(233,255,253);">
+					Historical data
+				</div>
+				<div class="panel-body">
+					<div class="col-lg-4 col-md-6 col-sm-10">
+						<div class="shadow" style="width: 100%;">
+							<img class="shadow-img" src="/images/humidity4.png" >
+							<div class="content">
+								<div class="showMeg">
+									<p class="title">
+										<!-- 历史数据可视化选择特定设备，运行时间对水质浊度、温度、电导率和PH等分析。
+										
+										若存在则可视化，并分析该时间段的最大、最小和均值；
+										若无则显示无。 -->
+										A specific device can be selected to run time analysis of turbidity, temperature, conductivity etc. 
+										If present, visualize and analyze the maximum, 
+										minimum and average values for the time period; if not,display none.
+									</p>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-10">
+						<div class="shadow">
+							<div class="content">
+								<p style="font-size: larger;font-weight: bold;margin-bottom: 1px;">Main console</p>
+								<!-- <div class="showMeg">
+									<p class="title" style="font-weight: bold;">评判结果：</p>
+									<p id="result"></p>
+								</div>
+								<div class="showMeg">
+									<p class="title" style="font-weight: bold;">根据结果对设备进行操作：</p>
+									<select class="form-control"></select>
+								</div>
+								<div class="showMeg">
+									<button type="button" id="open" class="btn btn-info">开启</button>
+									<button type="button" id="close" class="btn btn-default">关闭</button>
+								</div> -->
+								<!-- 尝试将post方式改为ajax -->
+								<!-- <form role="form"  method="post" action="/users/history" enctype="multipart/form-data"> -->
+								<!-- 即使将method="post" action="/users/history"去掉后，
+								点击提交查询按钮后，仍会跳转到index/history路由，例子如下
+								http://localhost:3000/history?searchTime=2021-04-05&beginTime=11%3A09&endTime=11%3A40&devId=%22Light1%22 
+								解决方法：尝试将标签中的name属性去掉，该属性用来前后端传值，举例将name="searchTime"去掉 
+								而value用于显示网页上的值
+								
+								研究发现，以上并不是解决方法，真正的解决方法是
+								<button type="submit" class="btn btn-info" id="btnSearch">提交查询</button>中
+								的type类型值改为button
+								-->
+								<form role="form" >
+									<div class="form-group">
+										<div style="width: 100%;height: 25px; ">
+											<!-- <label style="font-size: large;font-weight: bold;line-height: 25px; display:inline;">查询日期：</label> -->
+											<label >Start date：</label>
+											<input style="width: 212px;height: 23px; display:inline;" type="date" class="form-control"  id="searchTime" value="2022-09-23" />
+											<!-- <input style="width: 150px;" type="date" class="form-control" name="" id="" value="2021-04-06" /> -->
+										</div>
+										<div style="width: 100%;height: 25px; ">
+											<!-- <label style="font-size: large;font-weight: bold;line-height: 25px; display:inline;">查询日期：</label> -->
+											<label >End  date：</label>
+											<input style="width: 212px;height: 23px; display:inline;" type="date" class="form-control"  id="endDate" value="2022-10-23" />
+											<!-- <input style="width: 150px;" type="date" class="form-control" name="" id="" value="2021-04-06" /> -->
+										</div>
+										
+										<div style="width: 100%;height: 25px;float: left;">
+											<!-- <label style="font-size: large;font-weight: bold;display:inline;line-height: 25px;">查询时间：</label> -->
+											<label >Query time：</label>
+											<input style="width: 100px;display:inline;height: 23px;" type="time" class="form-control" id="beginTime" value="09:20"/><label style="display:inline;">~</label>
+											<input style="width: 100px;display:inline;height: 23px;" type="time" class="form-control" id="endTime" value="23:40" />
+											<!-- <input style="width: 150px;" type="date" class="form-control" name="" id="" value="2021-04-06" /> -->
+										</div>
+										<div class="showMeg" style="margin: 1px;">
+											<p class="title" style="font-weight: bold;">Select device：</p>
+											<select class="form-control" value="" id="sel" style="height: 30px;"></select>
+										</div>
+										
+										<!-- <select class="form-control" name="devId" ></select> -->
+									</div>
+									<div class="form-group"  >
+										<button type="button" class="btn btn-info" id="btnSearch" style="background-color:rgb(32, 137, 69);padding: 0px;">Start analysis</button>
+									</div>
+									<!-- <div class="showMeg">
+										<p class="title" style="visibility: hidden;" id="deviceArr"  ><%= deviceArr%></p>
+									</div> -->
+									<!-- <ul>
+										<li>查询日期:<input style="width: 150px;" type="date" name="workdate" id="" value="2021-04-04" size="25px"/></li>
+										<li>查询时间:<input style="width: 70px;" type="time" name="worktime" id="" value="10:00" />~<input type="time" name="worktime2" id="" value="12:00" /></li>
+									</ul> -->
+								</form>
+							</div>
+						</div>
+					</div>
+					<!-- style：style="text-align: center;"
+					<table style="margin: auto;" >
+					当网页自适应时让内容在阴影方块居中显示
+					 -->
+					<div class="col-lg-4 col-md-6 col-sm-10">
+						<div class="shadow" style="text-align: center;padding-top: 28px;">
+							<table style="margin: 0 auto;" >
+								<tr>
+									<td>
+										<!-- <div class="content">
+											<div class="showMeg">
+												<p class="title">温度</p>
+											</div>
+										</div> -->
+										<img src="/images/zhuodu4.png">
+										<div class="content">
+											<div class="showMeg">
+											  <p class="title">NTU</p>
+											  <!-- <p style="color:black;" id="avg_temper"></p> -->
+											</div>
+										    <div class="showMeg">
+										      <p class="title">M:</p>
+										      <p style="color:black;" id="avg_temper"><%= avg_temper%></p>
+										    </div>
+											<div class="showMeg">
+											  <p class="title">P:</p>
+											  <p style="color:black;" id="max_temper" ><%= max_temper%></p>
+											</div>
+											<div class="showMeg">
+											  <p class="title">V:</p>
+											  <p style="color:black;" id="min_temper" ><%= min_temper%></p>
+											</div>
+										</div>
+									</td>
+									<td>
+										<img src="/images/temperature4.png">
+										<div class="content">
+											<div class="showMeg">
+											  <p class="title">℃</p>
+											  <!-- <p style="color:black;" id="avg_temper"></p> -->
+											</div>
+										    <div class="showMeg">
+										      <p class="title">M:</p>
+										      <p style="color:black;" id="avg_humidity"><%=avg_humidity%></p>
+										    </div>
+											<div class="showMeg">
+											  <p class="title">P:</p>
+											  <p style="color:black;" id="max_humidity" ><%= max_humidity%></p>
+											</div>
+											<div class="showMeg">
+											  <p class="title">V:</p>
+											  <p style="color:black;" id="min_humidity" ><%= min_humidity%></p>
+											</div>
+										</div>
+									</td>
+									<td>
+										<img src="/images/ph4.png">
+										<div class="content">
+											<div class="showMeg">
+											  <p class="title">PH</p>
+											  <!-- <p style="color:black;" id="avg_temper"></p> -->
+											</div>
+										    <div class="showMeg">
+										      <p class="title">M:</p>
+										      <p style="color:black;" id="avg_light"><%= avg_light%></p>
+										    </div>
+											<div class="showMeg">
+											  <p class="title">P:</p>
+											  <p style="color:black;" id="max_light" ><%= max_light%></p>
+											</div>
+											<div class="showMeg">
+											  <p class="title">V:</p>
+											  <p style="color:black;" id="min_light" ><%= min_light%></p>
+											</div>
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+						
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-10">
+						<div class="shadow">
+							<div id="temperatureChart" style="width: 100%;height:200px;">
+								历史浊度
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-10">
+						<div class="shadow">
+							<div id="humidChart" style="width: 100%;height: 200px;">
+								历史温度
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-10">
+						<div class="shadow">
+							<div id="lightChart" style="width: 100%;height: 200px;">
+								历史PH
+							</div>
+						</div>
+					</div>
+					<!-- 2022年9月24日 -->
+					<div class="col-lg-4 col-md-6 col-sm-10">
+						<div class="shadow">
+							<div id="tdsChart" style="width: 100%;height: 200px;">
+								历史TDS
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-4 col-md-6 col-sm-10">
+						<div class="shadow">
+							<div id="ecChart" style="width: 100%;height: 200px;">
+								历史电导率
+							</div>
+						</div>
+					</div>
+
+					<!-- 2022年9月28日 -->
+
+					<div class="col-lg-4 col-md-6 col-sm-10">
+						<div class="shadow" style="text-align: center;padding-top: 28px;">
+							<table style="margin: 0 auto;" >
+								<tr>
+									<td>
+										<!-- <div class="content">
+											<div class="showMeg">
+												<p class="title">温度</p>
+											</div>
+										</div> -->
+										<img src="/images/gps4.png">
+										<div class="content">
+											<div class="showMeg">
+											  <p class="title">Positioning</p>
+											  <!-- <p style="color:black;" id="avg_temper"></p> -->
+											</div>
+										    <div class="showMeg">
+										      <p class="title">M:</p>
+										      <p style="color:black;" id=""><%= avg_temper%></p>
+										    </div>
+											<div class="showMeg">
+											  <p class="title">P:</p>
+											  <p style="color:black;" id="" ><%= max_temper%></p>
+											</div>
+											<div class="showMeg">
+											  <p class="title">V:</p>
+											  <p style="color:black;" id="" ><%= min_temper%></p>
+											</div>
+										</div>
+									</td>
+									<td>
+										<img src="/images/ec4.png">
+										<div class="content">
+											<div class="showMeg">
+											  <p class="title">Conductivity</p>
+											  <!-- <p style="color:black;" id="avg_temper"></p> -->
+											</div>
+										    <div class="showMeg">
+										      <p class="title">M:</p>
+										      <p style="color:black;" id="avg_ec"><%=avg_ec%></p>
+										    </div>
+											<div class="showMeg">
+											  <p class="title">P:</p>
+											  <p style="color:black;" id="max_ec" ><%= max_ec%></p>
+											</div>
+											<div class="showMeg">
+											  <p class="title">V:</p>
+											  <p style="color:black;" id="min_ec" ><%= min_ec%></p>
+											</div>
+										</div>
+									</td>
+									<td>
+										<img src="/images/tds4.png">
+										<div class="content">
+											<div class="showMeg">
+											  <p class="title">TDS</p>
+											  <!-- <p style="color:black;" id="avg_temper"></p> -->
+											</div>
+										    <div class="showMeg">
+										      <p class="title">M:</p>
+										      <p style="color:black;" id="avg_tds"><%= avg_tds%></p>
+										    </div>
+											<div class="showMeg">
+											  <p class="title">P:</p>
+											  <p style="color:black;" id="max_tds" ><%= max_tds%></p>
+											</div>
+											<div class="showMeg">
+											  <p class="title">V:</p>
+											  <p style="color:black;" id="min_tds" ><%= min_tds%></p>
+											</div>
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+						
+					</div>
+
+
+
+				</div>
+				
+			</div>
+			
+		</div>
+		
+	</div>
+	
+</div>
+<p class="title" style="visibility: hidden;" id="deviceArr"  ><%= deviceArr%></p>
+	<script src="/javascripts/jquery-1.12.4.js"></script>
+	<script src="/javascripts/echarts.min.js"></script>
+	<script src="/javascripts/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/javascripts/historyDataVision.js"></script>      
+</body>
+</html>

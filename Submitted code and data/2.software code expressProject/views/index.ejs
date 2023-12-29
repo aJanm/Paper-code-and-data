@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title style="color: black;"><%= title %></title>
+    <!-- <link rel='stylesheet' href='/stylesheets/style.css' /> -->
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="/stylesheets/bootstrap.css" rel="stylesheet" />
+    <link href="/stylesheets/my.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/stylesheets/header.css">
+    <link rel="stylesheet" href="/stylesheets/navBar.css">
+    <!--
+        注意引入css文件时，要使用link属性，而不是script，并且link一般单独出现
+    -->
+    
+    <!-- <style type="text/css">
+      
+    </style> -->
+    <style type="text/css">
+      .background{
+          margin: 0;
+          padding: 0;
+          background: url("/images/orange3.jpg") no-repeat center 0px;
+          background-size: cover;  
+          background-position: center 0;
+          background-attachment: fixed;
+
+          -webkit-background-size: cover;  
+          -o-background-size: cover;  
+          -moz-background-size: cover;  
+          -ms-background-size: cover;
+          /* no-repeat:保证当屏幕缩小时，不会有多张背景图片出现
+          background-attachment: fixed;保证在使用no-repeat后，即不会有多张背景图片出现时，当屏幕缩小时下方不会出现白边
+          background-size: cover保证-把背景图片放大到适合元素容器的尺寸，图片比例不变，
+          但是要注意，超出容器的部分可能会裁掉。
+          倒数四句是为了保证兼容性
+           */
+      }
+  </style>
+  </head>
+  
+  <body class="background">
+    <!-- <h1 align='center'><%= title %></h1> -->
+    <!-- <p >Welcome to <%= title %></p> -->
+    <!-- #54FF9F  -->
+    <div class="header">
+      <div class="content">
+        <ul>
+          <li><a href="">个人中心</a>/</li>
+          <li><a href="">更多</a>/</li>
+          <!-- <li>查询</li> -->
+          
+        </ul>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <h1 align='center' style="color:#FFE4B5;"><%= title %></h1>
+      </div>
+      <div class="row">
+        <div class="navBar">
+          <nav>
+            <a class="currentPage" href="">首页</a>
+            <a href="/login">数据添加</a>
+            <a href="">数据更改</a>
+            <a href="">数据查询</a>
+            <a href="">历史数据可视化</a>
+          </nav>
+        </div>
+      </div>
+      <div class="row">
+
+        <div class=" col-lg-4 col-sm-6 col-xs-12">
+          <div class="shadow" style="padding-bottom: 23px ;">
+            <img class="shadow-img" src="/images/oranges3.png">
+            <div class="content">
+              <div class="showMeg">
+                <p class="title">赣南地区盛产脐橙，闻名世界。脐橙丰收后涉及存储问题。脐橙贮藏保鲜的条件是1~10℃的适宜温度，80%~90%的相对湿度。
+                  存储过程中主要考虑环境温湿度、气体成分和光照等，而模糊综合评判非常适合这种涉及到多个因子的问题，
+                  它可以根据当前的环境指标给出建议，比如什么时候调节温湿度，什么时候调节气体成分和光照等。</p>
+            
+              </div>
+                   
+            </div>
+          </div>
+        </div>
+
+        <div class=" col-lg-4 col-sm-6 col-xs-12" >
+          <div class="shadow" style="height: 218.5px; padding-bottom: 50px;">
+            <div class="content">
+              <p style="font-size: larger; color: #000000;font-weight: bold;">主控制台</p>
+              <div class="showMeg">
+                <p class="title" style="font-weight: bold;">评判结果：</p>
+                <p id='result'></p>
+              </div>
+              <div class="showMeg">
+                
+                <p class="title" style="font-weight: bold;">根据结果对设备进行操作：</p>
+                <select class="form-control"></select>
+              </div>
+              <div class="showMeg">
+    
+                <button class="btn btn-info" id="open" type="button">开启</button>
+                <!-- <div class="divClose">
+                  <button class="btn btn-default" id="close">关闭</button>
+                </div> -->
+                <button class="btn btn-default" id="close">关闭</button>
+                
+              </div>
+              <div>
+                <!-- table参数表示基本的表格 可换用其他参数 "table table-striped"
+             "table table-bordered" "table table-hover"-->
+        
+             </div>
+            </div>
+                    
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-sm-6 col-xs-12">
+          <div class="shadow" style="text-align:center;padding-top: 65px;padding-bottom:58px;" >
+            <table style="margin:auto;"><tr>
+              <!-- <td>
+                <div style="width: 20px;"></div>
+              </td> -->
+              <td>
+                  <img src="/images/temperature3.png">
+                  <div class="content">
+                      <div class="showMeg">
+                        <p class="title">温度:</p>
+                        <p style="color:#CDD9D7" id="temperature"></p>
+                      </div>
+                  </div>
+              </td>
+              <td>
+                <img src="/images/humidity3.png">
+                <div class="content">
+                    <div class="showMeg">
+                      <p class="title">湿度:</p>
+                      <p style="color:#CDD9D7" id="humidity"></p>
+                    </div>
+                </div>
+			</td>
+            <td>
+              <img src="/images/light2.png">
+              <div class="content">
+                  <div class="showMeg">
+                    <p class="title">光照强度:</p>
+                    <p style="color:#CDD9D7" id="test3"></p>
+                  </div>
+              </div>
+            </td>
+      
+            </tr>
+            </table>
+            <!-- <table class="table table-bordered" id='deviceTab'>
+              <caption>设备列表</caption>
+              <thead>
+                  <tr>
+                      <th>IP地址与端口号</th>
+                      <th>设备名称</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  
+              </tbody>
+            </table> -->
+          </div>
+        </div>
+
+        <div class=" col-lg-4 col-sm-6 col-xs-12">
+          <div class="shadow" style="text-align: center;">
+            <div id='temperatureChart' style="width:100%;height:300px;">实时温度可视化</div>
+          </div>
+        </div>
+
+        <div class=" col-lg-4 col-sm-6 col-xs-12">
+          <div class="shadow">
+            <div id='humidChart' style="width:100%;height:300px;">实时湿度可视化</div>
+          </div>
+        </div>
+
+        <div class=" col-lg-4 col-sm-6 col-xs-12">
+          <div class="shadow" >
+            <div id='lightChart' style="width: 100%;height:300px;">实时光照可视化</div>
+          </div>
+        </div>
+		
+      </div>
+          
+    </div>
+	
+    <!-- <script src="/public/javascripts/bootstrap.js"></script> -->
+    <script src="/javascripts/jquery-1.12.4.js"></script>
+    <script src="/javascripts/echarts.min.js"></script>
+    <script src="/javascripts/index.js"></script>      
+	<script src="/javascripts/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+	
+  </body>
+</html>

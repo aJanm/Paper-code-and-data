@@ -1,0 +1,30 @@
+@charset "utf-8";
+ul{
+	list-style: none;
+}
+.intput-form li{
+	margin: 5px 0px;
+}
+navbar-header{
+	width: 180px;
+	text-align: center;
+}
+.background{
+	margin: 0;
+	padding: 0;
+	background: url("/images/orange3.jpg") no-repeat center 0px;
+	background-size: cover;  
+	background-position: center 0;
+	background-attachment: fixed;
+	
+	-webkit-background-size: cover;  
+	-o-background-size: cover;  
+	-moz-background-size: cover;  
+	-ms-background-size: cover;
+	/* no-repeat:保证当屏幕缩小时，不会有多张背景图片出现
+	background-attachment: fixed;保证在使用no-repeat后，即不会有多张背景图片出现时，当屏幕缩小时下方不会出现白边
+	background-size: cover保证-把背景图片放大到适合元素容器的尺寸，图片比例不变，
+	但是要注意，超出容器的部分可能会裁掉。
+	倒数四句是为了保证兼容性
+	 */
+}

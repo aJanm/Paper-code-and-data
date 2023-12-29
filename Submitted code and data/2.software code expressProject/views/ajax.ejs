@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+</head>
+<body>
+	<div class="form">
+		<p>
+			<label for="">用户名</label>
+			<input type="text" name="username" autocomplete="off" id="username" value="123" />
+		</p>
+		<p>
+			<label for="">密码</label>
+			<input type="text" name="password" autocomplete="off" id="password" value="111" />
+		</p>
+		<p>
+			<button onclick="sendData()">注册</button>
+		</p>
+	</div>
+	<h1 id="result"></h1>
+	<script src="../public/javascripts/jquery-1.12.4.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		function sendData(){
+			let username = document.getElementById('username').value;
+			let password = document.getElementById('password').value;
+			let dom = document.getElementById('result');
+			console.log(username,password,dom);
+			//使用ajax进行页面更新
+			// 1. 创建ajax对象
+			// let xhr = new XMLHttpRequest();
+			let xhr;
+			if (window.XMLHttpRequest) {
+				xhr = new XMLHttpRequest();
+			}else if(window.ActiveXObject){
+				xhr = new ActiveXObject();
+			}else{
+				return alert("不支持ajax");
+			}
+			// 2. 监听状态的改变 onreadystatechange
+			xhr.onreadystatechange = function(){
+				console.log("zt",xhr.readyState);
+				// readyState: 
+				// 1 :已经调用open函数
+				// 2 :已经接收到响应头
+				// 3 :已经接收到部分响应文本
+				// 4 :接受全部响应文本
+				if (xhr.readyState === 4 ) {
+					if(xhr.status === 200 || xhr.status === 304){
+						//查看数据
+						console.log(xhr);
+						var name = xhr.responseXML.getElementsByTagName('name')[0].innerHTML;
+						var address = xhr.responseXML.getElementsByTagName('adderss')[0].innerHTML;
+						dom.innerHTML = '${address}-${name}';
+					}
+				}
+			}
+			
+			// 3. 打开链接
+			// xml.open(method, url, bool)
+			// xhr.open('GET','/users/ajaxtest', true);
+			xhr.open('GET','/users/ajaxtest?username=${username}&password=${password}', true);
+			// 4. 发送ajax
+			xhr.send();
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="/stylesheets/bootstrap.css" rel="stylesheet"/>
+    <link href="/stylesheets/my.css" rel="stylesheet"/>
+    <!--
+        注意引入css文件时，要使用link属性，而不是script，并且link一般单独出现
+    -->
+	<script src="/javascripts/jquery-1.12.4.js"></script>
+    <script src="/javascripts/bootstrap.js"></script>
+    <script src="/javascripts/my.js"></script>
+    <!-- 关于链接的引用，之前老是出现
+        Failed to load resource: the server responded with a status of 404 (Not Found)
+        的错误，然后我便参考它自己里index.ejs中文件的引用
+     -->
+
+    <title>脐橙生长环境监控系统</title>
+    <style type="text/css">
+        .body{
+            margin: 0;
+            padding: 0;
+            background: url("/images/orange3.jpg") no-repeat center 0px;
+            background-size: cover;  
+            background-position: center 0;
+            background-attachment: fixed;
+
+            -webkit-background-size: cover;  
+            -o-background-size: cover;  
+            -moz-background-size: cover;  
+            -ms-background-size: cover;
+            /* no-repeat:保证当屏幕缩小时，不会有多张背景图片出现
+            background-attachment: fixed;保证在使用no-repeat后，即不会有多张背景图片出现时，当屏幕缩小时下方不会出现白边
+            background-size: cover保证-把背景图片放大到适合元素容器的尺寸，图片比例不变，
+            但是要注意，超出容器的部分可能会裁掉。
+            倒数四句是为了保证兼容性
+             */
+        }
+    </style>
+
+</head>
+<body class="body">
+<div class="container">
+
+    <div class="row" style="margin-top:40px">
+        <div class="col-xs-10 col-xs-offset-2 col-sm-8 col-sm-offset-3 col-md-6  col-md-offset-4">
+            <form role="form" action="/formtest" method="get">
+                <!-- 这里的/users/register是指routers下的uesr.js文件中的register接口 -->
+                <fieldset style="width: 78%">
+                    <h2 alignment="center">欢迎登录脐橙生长环境监控系统</h2>
+                    <!-- <hr class="colorgraph"> -->
+                    <div class="form-group" style="margin-top: 45px;">
+                        <input type="text" name="usrname" id="email" class="form-control input-lg" placeholder="请输入账号">
+                        <p style="font-size: 15px;font-weight: bold; color: black;"><%= account %></p>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" id="password" class="form-control input-lg" placeholder="请输入密码">
+                        <p style="font-size: 15px;font-weight: bold; color:rgb(0,0,0)"><%= password %></p>
+                    </div>
+					<!-- <div class="form-group" style="text-align: center;">
+						<input type="radio" name="zhanghao" id="admin" value=""/><label for="admin">管理员</label>
+						<input type="radio" name="zhanghao" id="user" value=""/><label for="user">普通用户</label>
+					</div> -->
+                    <span class="button-checkbox">
+					<!-- <button type="button" class="btn" data-color="info">记住密码</button> -->
+                    <input type="checkbox" name="remember_me" id="remember_me" checked="checked" class="hidden">
+					<!-- <a href="" class="btn btn-link pull-right">忘记密码?</a> -->
+				</span>
+                    <!-- <hr class="colorgraph"> -->
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <input type="submit" class="btn btn-lg btn-success btn-block" value="登录">
+                        </div>
+                        <!-- <div class="col-xs-6 col-sm-6 col-md-6">
+                            <a href="" class="btn btn-lg btn-primary btn-block">注册</a>
+                        </div> -->
+                        <div class="col-xs-6 col-lg-offset-4  col-sm-6 col-lg-offset-4 col-md-6 col-lg-offset-4" style="font-weight: bold;">
+                            没有账号，<a href="/register">点击注册</a>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

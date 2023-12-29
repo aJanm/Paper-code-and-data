@@ -1,0 +1,197 @@
+<%- include head.ejs %>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-lg-2 col-md-4 col-sm-6">
+			<%- include navLeft.ejs%>
+		</div>
+		<div class="col-lg-10 col-md-8 col-sm-6">
+			<ol class="breadcrumb">
+				<li>系统管理</li>
+				<li>历史数据</li>
+			</ol>
+			
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					历史数据
+				</div>
+				<div class="panel-body">
+					<div class="col-lg-4 col-md-6 col-sm-10">
+						<div class="shadow" style="width: 100%;height: 220px;">
+							<img class="shadow-img" src="/images/oranges3.png" >
+							<div class="content">
+								<div class="showMeg">
+									<p class="title">
+										历史数据可视化提供的功能有设备选择、设备运行时间、和一段时间内的温湿度和光度分析。
+										输入查询时间、选择不同的设备，点击提交进行查询。
+										若存在该时间段的历史数据，则可将其可视化，同时显出在在该时间段的最大、最小和平均值；
+										若该时间段内无历史数据时，则显示无。
+									</p>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-10">
+						<div class="shadow" style="height: 220px;">
+							<div class="content">
+								<p style="font-size: larger;font-weight: bold;">主控制台</p>
+								<!-- <div class="showMeg">
+									<p class="title" style="font-weight: bold;">评判结果：</p>
+									<p id="result"></p>
+								</div>
+								<div class="showMeg">
+									<p class="title" style="font-weight: bold;">根据结果对设备进行操作：</p>
+									<select class="form-control"></select>
+								</div>
+								<div class="showMeg">
+									<button type="button" id="open" class="btn btn-info">开启</button>
+									<button type="button" id="close" class="btn btn-default">关闭</button>
+								</div> -->
+								<form role="form" action="/users/history1" method="post" enctype="multipart/form-data">
+									<div class="form-group">
+										<div style="width: 100%;height: 25px; ">
+											<label style="font-size: large;font-weight: bold;line-height: 25px; display:inline;">查询日期：</label>
+											<input style="width: 198px;height: 23px; display:inline;" type="date" class="form-control" name="searchTime" id="" value="2021-04-05" />
+											<!-- <input style="width: 150px;" type="date" class="form-control" name="" id="" value="2021-04-06" /> -->
+										</div>
+										
+										<div style="width: 100%;height: 25px;float: left;">
+											<label style="font-size: large;font-weight: bold;display:inline;line-height: 25px;">查询时间：</label>
+											<input style="width: 94px;display:inline;height: 23px;" type="time" class="form-control" name="beginTime" id="" value="17:40"/><label style="display:inline;">~</label>
+											<input style="width: 94px;display:inline;height: 23px;" type="time" class="form-control" name="endTime" id="" value="18:40" />
+											<!-- <input style="width: 150px;" type="date" class="form-control" name="" id="" value="2021-04-06" /> -->
+										</div>
+										<div class="showMeg">
+											<p class="title" style="font-weight: bold;">选择相应的设备：</p>
+											<select class="form-control" name="devId"></select>
+										</div>
+										<!-- <select class="form-control" name="devId" ></select> -->
+									</div>
+									<div class="form-group">
+										<button type="submit" class="btn btn-info">提交查询</button>
+									</div>
+									<!-- <ul>
+										<li>查询日期:<input style="width: 150px;" type="date" name="workdate" id="" value="2021-04-04" size="25px"/></li>
+										<li>查询时间:<input style="width: 70px;" type="time" name="worktime" id="" value="10:00" />~<input type="time" name="worktime2" id="" value="12:00" /></li>
+									</ul> -->
+								</form>
+							</div>
+						</div>
+					</div>
+					<!-- style：style="text-align: center;"
+					<table style="margin: auto;" >
+					当网页自适应时让内容在阴影方块居中显示
+					 -->
+					<div class="col-lg-4 col-md-6 col-sm-10">
+						<div class="shadow" style="text-align: center;height: 220px;padding-top: 28px;">
+							<table style="margin: 0 auto;" >
+								<tr>
+									<td>
+										<!-- <div class="content">
+											<div class="showMeg">
+												<p class="title">温度</p>
+											</div>
+										</div> -->
+										<img src="/images/temperature3.png">
+										<div class="content">
+											<div class="showMeg">
+											  <p class="title">℃</p>
+											  <!-- <p style="color:black;" id="avg_temper"></p> -->
+											</div>
+										    <div class="showMeg">
+										      <p class="title">平均:</p>
+										      <p style="color:black;" id="avg_temper"><%= avg_temper%></p>
+										    </div>
+											<div class="showMeg">
+											  <p class="title">最高:</p>
+											  <p style="color:black;" id="max_temper" ><%= max_temper%></p>
+											</div>
+											<div class="showMeg">
+											  <p class="title">最低:</p>
+											  <p style="color:black;" id="min_temper" ><%= min_temper%></p>
+											</div>
+										</div>
+									</td>
+									<td>
+										<img src="/images/humidity3.png">
+										<div class="content">
+											<div class="showMeg">
+											  <p class="title">%</p>
+											  <!-- <p style="color:black;" id="avg_temper"></p> -->
+											</div>
+										    <div class="showMeg">
+										      <p class="title">平均:</p>
+										      <p style="color:black;" id="avg_humidity"><%=avg_humidity%></p>
+										    </div>
+											<div class="showMeg">
+											  <p class="title">最高:</p>
+											  <p style="color:black;" id="max_humidity" ><%= max_humidity%></p>
+											</div>
+											<div class="showMeg">
+											  <p class="title">最低:</p>
+											  <p style="color:black;" id="min_humidity" ><%= min_humidity%></p>
+											</div>
+										</div>
+									</td>
+									<td>
+										<img src="/images/light2.png">
+										<div class="content">
+											<div class="showMeg">
+											  <p class="title">lux</p>
+											  <!-- <p style="color:black;" id="avg_temper"></p> -->
+											</div>
+										    <div class="showMeg">
+										      <p class="title">平均:</p>
+										      <p style="color:black;" id="avg_light"><%= avg_light%></p>
+										    </div>
+											<div class="showMeg">
+											  <p class="title">最高:</p>
+											  <p style="color:black;" id="max_light" ><%= max_light%></p>
+											</div>
+											<div class="showMeg">
+											  <p class="title">最低:</p>
+											  <p style="color:black;" id="min_light" ><%= min_light%></p>
+											</div>
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+						
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-10">
+						<div class="shadow">
+							<div id="temperatureChart" style="width: 100%;height:200px;">
+								历史温度
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-10">
+						<div class="shadow">
+							<div id="humidChart" style="width: 100%;height: 200px;">
+								历史湿度
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-10">
+						<div class="shadow">
+							<div id="lightChart" style="width: 100%;height: 200px;">
+								历史光度
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+			
+		</div>
+		
+	</div>
+	
+</div>
+	<script src="/javascripts/jquery-1.12.4.js"></script>
+	<script src="/javascripts/echarts.min.js"></script>
+	<script src="/javascripts/historyDataVision.js"></script>      
+	<script src="/javascripts/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

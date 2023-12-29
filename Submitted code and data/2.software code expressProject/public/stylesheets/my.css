@@ -1,0 +1,190 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.colorgraph {
+    height: 5px;
+    border-top: 0;
+    background: #c4e17f;
+    border-radius: 5px;
+    background-image: -webkit-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+    background-image: -moz-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+    background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+    background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+}
+/*这是一个类选择器，以一个点号显示*/
+.h1{
+    font-family: Arial, Helvetica, sans-serif;
+    /* font-size: 2em; */
+    color: #404050;
+    margin-bottom: 40px;
+}
+/* .header{
+    width: 100%;
+    height: 30px;
+}
+.header .content{
+    width: 900px;
+    height: 100%;
+    margin: 0 auto;
+} */
+.title{
+    text-align: center;
+    color: #3253A1;
+}
+.shadow{
+	/* 原背景颜色：暗黄色 */
+    /* background-color: rgba(255,228,196, 0.4); */
+    /* background-color: rgb(245,245,245); */
+    /* 淡绿色 */
+    background-color: rgb(233,255,253); 
+    /* background-color: rgb(245,245,245); */
+    /* background-color: rgb(233, 255, 248); */
+    /* background-color: rgb(176, 196, 222); */
+    display: block;
+    /* margin: 0; */
+    margin-bottom: 10px;
+}
+/*2023年4月6日 */
+/* 2023年12月17日 */
+.col-lg-2 col-md-4 col-sm-6{
+    background-color: rgb(233,255,253);
+    /* background-color: rgb(245,245,245); */
+}
+#navBarBack{
+    background-color: rgb(233,255,253);
+    /* background-color: rgb(245,245,245); */
+
+}
+.breadcrumb{
+    background-color: rgb(233,255,253);
+    /* background-color: rgb(245,245,245); */
+
+
+}
+/* .panel-heading{
+    background-color: rgb(233,255,253);
+
+} */
+/* .shadow table{
+    padding: 10px,0px;
+    display: block;
+    margin: auto;
+} */
+.shadow-img{
+    /* 第一个参数设置上下内边距为10px,第二个参数设置左右内边距为0 */
+    padding: 10px,0px;
+    /* 此元素将显示为块级元素，此元素前后会带有换行符,以下两个命令便可保证图片居中 */
+    display: block;
+    margin: auto;
+}
+.content{
+    /* text-align: center; */
+    text-align: center;
+    /* 2023年5月2日 */
+    font-size: 16px;
+    font-weight: bold;
+}
+.showMeg{
+    /* margin: 6px 12px; */
+    /* 2023年5月2日 */
+    margin: 0px;
+    /* font-size: 14px; */
+    /* text-align: left; */
+
+}
+.showMeg p{
+    /* 让使用该类选择器的文字在同一段显示 */
+    display: inline;
+    /* color: #FFE4B5 #8FBC93; */
+    color: #000000;
+    
+}
+.showMeg button{
+    /* 让使用该类选择器的文字在同一段显示 */
+    display: inline;
+    margin: 0px;
+    padding: 2px;
+}
+.table{
+    /* font-size: medium; */
+    color: #4a4844;
+}
+.table caption{
+    color: #FFE4B5;
+    text-align: center;
+} 
+
+.table thead tr th{
+    text-align: center;
+}
+.table tbody tr td{
+    text-align: center;
+    /* 垂直居中 */
+    vertical-align: middle;
+}
+.form-group p{
+    color: black;
+    font-weight: bold;
+}
+td{
+    padding-left: 20px;
+}
+.shadow{
+    height: 200px;
+}
+/* 2023年5月2日 */
+.breadcrumb{
+    font-size:22px; 
+    font-family: Arial,Helvetica,sans-serif;
+}
+.panel-heading{
+    font-size:22px; 
+    font-family: Arial,Helvetica,sans-serif;
+    font-weight: bold;
+}
+
+/* 设置选择框中的字体的大小 */
+.form-control{
+    font-size:16px; 
+    font-family: Arial,Helvetica,sans-serif;
+}
+/* button{
+    font-size:18px; 
+    font-family: Arial,Helvetica,sans-serif;
+} */
+#open{
+    font-size:18px; 
+    font-weight: bold;
+    font-family: Arial,Helvetica,sans-serif;
+}
+#close{
+    font-size:18px; 
+    font-weight: bold;
+    font-family: Arial,Helvetica,sans-serif;
+}
+#btnSearch{
+    font-size:18px; 
+    font-weight: bold;
+    font-family: Arial,Helvetica,sans-serif;
+}
+#result{
+    font-size: 16px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    text-align: left;
+}
+
+/* 2023年12月10日 */
+label {
+    display: inline-block; /* 让标签在同一行显示 */
+    width: 100px; /* 设置标签的固定宽度，可以根据实际需要调整 */
+    text-align: left; /* 文本左对齐 */
+}
+/* 2023年12月10日 */
+
+/* 2023年12月28日 */
+a {
+    font-weight: bold;
+    font-size: 15px;
+}
+

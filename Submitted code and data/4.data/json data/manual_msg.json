@@ -1,0 +1,117 @@
+[{
+  "_id": {
+    "$oid": "6335695c1dc52432400c88a6"
+  },
+  "temperature": "6.52",
+  "humidity": "24.60",
+  "light": "7.82",
+  "ec": "132.56",
+  "tds": "66.54",
+  "testdate": "2022-09-18",
+  "testtime": "19:00",
+  "description": "Water sample 1"
+},
+{
+  "_id": {
+    "$oid": "635fcac706c53bc6384d8260"
+  },
+  "temperature": "28.65",
+  "humidity": "23.96",
+  "light": "7.86",
+  "ec": "140.25",
+  "tds": "70.46",
+  "testdate": "2022-10-01",
+  "testtime": "16:00",
+  "description": "Water sample 2, random test\r\n"
+},
+{
+  "_id": {
+    "$oid": "635fcd3106c53bc6384d8261"
+  },
+  "temperature": "5.46",
+  "humidity": "24.19",
+  "light": "7.56",
+  "ec": "112.41",
+  "tds": "56.10",
+  "testdate": "2022-10-13",
+  "testtime": "16:19",
+  "description": "Water sample 3"
+},
+{
+  "_id": {
+    "$oid": "635fcd9a06c53bc6384d8262"
+  },
+  "temperature": "24.94",
+  "humidity": "25.63",
+  "light": "7.88",
+  "ec": "132.67",
+  "tds": "66.39",
+  "testdate": "2023-04-06",
+  "testtime": "16:54",
+  "description": "Water sample demo update testing"
+},
+{
+  "_id": {
+    "$oid": "635fce2f06c53bc6384d8263"
+  },
+  "temperature": "28.16",
+  "humidity": "24.86",
+  "light": "7.39",
+  "ec": "304.76",
+  "tds": "153.82",
+  "testdate": "2022-10-31",
+  "testtime": "21:03",
+  "description": "-"
+},
+{
+  "_id": {
+    "$oid": "63648de292717be7803415d6"
+  },
+  "temperature": "100",
+  "humidity": "",
+  "light": "",
+  "ec": "",
+  "tds": "",
+  "testdate": "2022-09-28",
+  "testtime": "14:00",
+  "description": "November 4, 2022 11:55:43\r\nNovember 4, 2022 12:01:15\r\nTap water for data analysis"
+},
+{
+  "_id": {
+    "$oid": "63ff521d9313842d88131b40"
+  },
+  "temperature": "18.25",
+  "humidity": "25.47",
+  "light": "7.20",
+  "ec": "132.19",
+  "tds": "67.43",
+  "testdate": "2022-10-31",
+  "testtime": "14:00",
+  "description": "A record of a measurement"
+},
+{
+  "_id": {
+    "$oid": "642e887c706f0a0f587d2073"
+  },
+  "temperature": "24.94",
+  "humidity": "25.63",
+  "light": "7.88",
+  "ec": "132.67",
+  "tds": "66.39",
+  "testdate": "2023-04-06",
+  "testtime": "16:54",
+  "description": "Water sample demo modification"
+},
+{
+  "_id": {
+    "$oid": "645cc982726a602394271500"
+  },
+  "temperature": "20",
+  "humidity": "25.47",
+  "light": "7.20",
+  "ec": "132.19",
+  "tds": "67.43",
+  "testdate": "2023-05-11",
+  "testtime": "14:00",
+  "description": ""
+}]

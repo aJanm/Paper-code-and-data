@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!-- 作为一个头部组件 -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.css"/>
+	<!-- 信息添加所用css -->
+	<link rel="stylesheet" type="text/css" href="/stylesheets/header1.css"/>
+	<!-- 实时显示所用css -->
+	<link rel="stylesheet" type="text/css" href="/stylesheets/my.css"/>
+	<!-- 2022年9月28日 -->
+	<link rel="stylesheet" type="text/css" href="/stylesheets/form.css"/>
+
+	<!-- 2023年12月28日 -->
+	<!-- <style>
+        th {
+            vertical-align: middle;
+        }
+    </style> -->
+</head>
+<body>
+	<!-- role="navigation"是h5的语义标签，
+	可以用于标识一个普通的标签,使之语义化,
+	方便浏览器对其具体功能进行识别。  -->
+	<div class="col-lg-12 col-md-6 col-sm-12">
+		<nav class="navbar navbar-inverse" role="navigation">
+			<!-- 以下class都定义在bootstrap.css中 -->
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<img src="/images/humidity3.png" height="44px;" >
+				</div>
+				<!-- Collapse（内容折叠）组件 -->
+				<div class="collapse navbar-collapse">
+					<ul class="nav navbar-nav">
+						<!-- <li class="active"><a href="#">系统说明</a></li> -->
+						<!-- <li class="active"><a href="#">个人中心</a></li> -->
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="/loginOut">安全退出</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</div>

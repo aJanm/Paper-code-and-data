@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表格</title>
+    <link href="/stylesheets/bootstrap.css" rel="stylesheet"/>
+    <link href="/stylesheets/my.css" rel="stylesheet"/>
+    <!--
+        注意引入css文件时，要使用link属性，而不是script，并且link一般单独出现
+    -->
+	<script src="/javascripts/jquery-1.12.4.js"></script>
+    <script src="/javascripts/bootstrap.js"></script>
+    <script src="/javascripts/test.js" type="text/javascript" charset="utf-8"></script>
+	<!-- 2023年12月28日 -->
+    <style>
+        th {
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>HeaderHeaderHeader 1</th>
+                <th>Header 2</th>
+                <th>Header 3</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Row 1, Cell 1</td>
+                <td>Row 1, Cell 2</td>
+                <td>Row 1, Cell 3</td>
+            </tr>
+            <tr>
+                <td>Row 2, Cell 1</td>
+                <td>Row 2, Cell 2</td>
+                <td>Row 2, Cell 3</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="col-md-3 col-sm-6 col-xs-12">
+        <!-- table参数表示基本的表格 可换用其他参数 "table table-striped"
+             "table table-bordered" "table table-hover"-->
+        <table class="table table-hover">
+            <caption>设备列表</caption>
+            <thead>
+                <tr>
+                    <th>IP地址</th>
+                    <th>设备ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- <tr>
+                    <th>192.168.0.0</th>
+                    <th>iot</th>
+                </tr> -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- $('#deviceTab')找某一个id $('div')找类div -->
+    
+
+    <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="shadow" style="text-align:center">
+          <table style="margin:auto"><tr>
+            <!-- <td>
+              <div style="width: 20px;"></div>
+            </td> -->
+            <td>
+                <img src="/images/phone.png">
+                
+            </td>
+            <td>
+              <img src="/images/msg.png">
+              
+          </td>
+          <td>
+            <img src="/images/sun.png">
+           
+          </td>
+    
+          </tr>
+          </table>
+        </div>
+      </div>
+
+    <div class='col-md-4 col-sm-6 col-xs-12'>
+		<select name="first" id="first" onchange="change_second_keywords()">
+			<option value="fone">清除杂草</option>
+			<option value="ftwo">化肥施肥</option>
+			<option value="fthree">幼树管理</option>
+			<option value="ffour">果树管理</option>
+		</select>
+		<select name="second" id="second">
+			<option value="sone">草甘膦</option>
+			<option value="stwo">百草枯</option>
+			<option value="sthree">稳杀得</option>
+			<option value="sfour">拿扑净</option>
+			<option value="sfive">割草机</option>
+		</select>
+	</div>
+	<script type="text/javascript">
+		var first_keywords = {};
+		first_keywords['fone']=["草甘膦", "百草枯", "稳杀得", "拿扑净", "割草机"];
+		first_keywords['ftwo']=['氮肥', '磷肥', '钾肥','钙肥', '厩肥'];
+		first_keywords['fthree']=['滴水灌溉', '抹芽摘心', '试花结果', '果树防冻'];
+		first_keywords['ffour']=['滴水灌溉', '树体整形', '树枝修剪','保❀保果', '疏花疏果','果树防冻'];
+		function change_second_keywords(){
+			var tget1 = document.getElementById('first');
+			var tget2 = document.getElementById('second');
+			// 得到第一个下拉框的内容
+			var selected_initial = tget1.options[tget1.selectedIndex].value;
+			// 清空次级下拉框的内容
+			while(tget2.options.length){
+				tget2.remove(0);
+			}
+			// 根据第一个下拉框的内容找第二个下拉框的内容
+			var second_list = first_keywords[selected_initial];
+			if(second_list){
+				for (var i=0; i<second_list.length; i++) {
+					var item = new Option(second_list[i], i);
+					tget2.options.add(item);
+				}
+			}
+		}
+	</script>
+
+    
+</body>
+</html>

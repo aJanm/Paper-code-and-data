@@ -1,0 +1,195 @@
+<%- include head.ejs %>
+<div class="container-fluid">
+	<div class="row">
+		<div id="navBarBack" class="col-lg-2 col-md-4 col-sm-6" style="padding-top:174px;padding-bottom: 174px; ">
+			<%- include navLeft.ejs%>
+		</div>
+		<div class="col-lg-10 col-md-8 col-sm-6">
+			<ol class="breadcrumb">
+				<li>Sensor data management </li>
+				<li>Real-time display</li>
+			</ol>
+			
+			<div class="panel panel-default">
+				<div class="panel-heading" style="background-color:rgb(233,255,253)">
+					Real-time display
+				</div>
+				<!-- 2022年9月23日panel-body对应里面的可视化小块 -->
+				<div class="panel-body">
+					<div class="col-lg-4 col-md-6 col-sm-10">
+						<div class="shadow" style="width: 100%;">
+							<img class="shadow-img" src="/images/humidity4.png" >
+							<div class="content">
+								<div class="showMeg">
+									<p class="title">
+										Collect water quality indicators through various sensors; 
+										Categorize and store data and visualize them in line charts; 
+										Carry out data analysis and outlier data mining to provide reference for decision-making.
+									</p>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-10">
+						<div class="shadow" >
+							<div class="content">
+								<p style="font-size: larger;font-weight: bold;margin:0px;">Main console</p>
+								<div class="showMeg">
+									<p class="title" style="font-weight: bold;">Evaluation result:</p>
+									<p id="result"></p>
+								</div>
+								<div class="showMeg">
+									<p class="title" style="font-weight: bold;">Operate based on results:</p>
+									<select class="form-control"></select>
+								</div>
+								<div class="showMeg">
+									<button type="button" id="open" class="btn btn-info" style="background-color:rgb(32, 137, 69)">Open</button>
+									<button type="button" id="close" class="btn btn-default">Close</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- style：style="text-align: center;"
+					<table style="margin: auto;" >
+					当网页自适应时让内容在阴影方块居中显示
+					 -->
+					<div class="col-lg-4 col-md-6 col-sm-10">
+						<div class="shadow" style="text-align: center;padding-top: 52px;">
+							<table style="margin: 0 auto;" >
+								<tr>
+								
+									<td>
+										<img src="/images/zhuodu4.png">
+										<div class="content">
+										    <div class="showMeg">
+										      <p class="title">Turbidity:</p>
+										      <p style="color:black;" id="temperature"></p>
+										    </div>
+										</div>
+									</td>
+
+									<td>
+										<img src="/images/temperature4.png">
+										<div class="content">
+											<div class="showMeg">
+												<p class="title">Temperature:</p>
+												<p style="color:black;" id="humidity"></p>
+											</div>
+										</div>
+									</td>
+
+									<td>
+										<img src="/images/ph4.png">
+										<div class="content">
+											<div class="showMeg">
+												<p class="title">PH:</p>
+												<p style="color:black;" id="test3"></p>
+											</div>
+										</div>
+									</td>
+									
+								</tr>
+								
+							
+								
+							</table>
+						</div>
+						
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-10">
+						<div class="shadow">
+							<div id="zhuduChart" style="width: 100%;height:200px;">
+								Turbidity
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-10">
+						<div class="shadow">
+							<div id="temperatureChart" style="width: 100%;height: 200px;">
+								Temperature
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-10">
+						<div class="shadow">
+							<div id="phChart" style="width: 100%;height: 200px;">
+								PH
+							</div>
+						</div>
+					</div>
+					<!-- 2022年9月23日尝试再添加可视化图 -->
+					<div class="col-lg-4 col-md-6 col-sm-10">
+						<div class="shadow">
+							<div id="tdsChart" style="width: 100%;height: 200px;">
+								TDS
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-10">
+						<div class="shadow">
+							<div id="ecChart" style="width: 100%;height: 200px;">
+								Conductivity
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-4 col-md-6 col-sm-10">
+						<div class="shadow" style="text-align: center;padding-top: 52px;">
+							<table style="margin: 0 auto;" >
+								<tr>
+									<td>
+										<img src="/images/gps4.png">
+										<div class="content">
+											<div class="showMeg">
+												<p class="title">Positioning:</p>
+												<p style="color:black;" id="gps"></p>
+											</div>
+										</div>
+									</td>
+									<td>
+										<img src="/images/ec4.png">
+										<div class="content">
+										    <div class="showMeg">
+										      <p class="title">Conductivity:</p>
+										      <p style="color:black;" id="ec"></p>
+										    </div>
+										</div>
+									</td>
+									
+									<td>
+										<img src="/images/tds4.png">
+										<div class="content">
+											<div class="showMeg">
+												<p class="title">TDS:</p>
+												<p style="color:black;" id="tds"></p>
+											</div>
+										</div>
+									</td>
+
+
+									
+								</tr>
+								
+							</table>
+						</div>
+						
+					</div>
+
+
+
+				</div>
+				
+			</div>
+			
+		</div>
+		
+	</div>
+	
+</div>
+	<script src="/javascripts/jquery-1.12.4.js"></script>
+	<script src="/javascripts/echarts.min.js"></script>
+	<script src="/javascripts/index.js"></script>      
+	<script src="/javascripts/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

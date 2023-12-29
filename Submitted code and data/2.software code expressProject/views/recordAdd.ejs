@@ -1,0 +1,95 @@
+<%-include head.ejs%>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-2">
+			<%- include navLeft.ejs%>
+		</div>
+		<div class="col-sm-10">
+			<ol class="breadcrumb">
+				<li class="active">农事管理</li>
+				<li class="active">信息添加</li>
+			</ol>
+			
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					信息添加
+				</div>
+				<div class="panel-body">
+					<div class="table-responsive intput-form">
+						<form action="/users/recordAdd" method="post" enctype="multipart/form-data">
+							<ul>
+								<li>工作果园:<select style="width: 150px; text-align: center;" name="orchard">
+								<!-- value是用来前后传值的，option之间的文字是用来提示的 -->
+									<option value ="果园1">果园1</option>
+									<option value ="果园2">果园2</option>
+									<option value ="果园3">果园3</option>
+									<option value ="果园4">果园4</option>
+									<option value ="果园5">果园5</option>
+								</select></li>
+								<!-- <li>具体操作:<select name="caozuo">
+									<option value="cone">除草</option>
+									<option value="ctwo">施肥</option>
+									<option value="cthree">整枝</option>
+								</select></li> -->
+								<li>具体操作:<select name="first" id="first" onchange="change_second_keywords()">
+									<option value="清除杂草">清除杂草</option>
+									<option value="化肥施肥">化肥施肥</option>
+									<option value="幼树管理">幼树管理</option>
+									<option value="果树管理">果树管理</option>
+								</select>
+								<select style="width: 66px;" name="second" id="second">
+									<option value="草甘膦">草甘膦</option>
+									<option value="百草枯">百草枯</option>
+									<option value="稳杀得">稳杀得</option>
+									<option value="拿扑净">拿扑净</option>
+									<option value="割草机">割草机</option>
+								</select>
+								</li>
+								<li>工作日期:<input style="width: 150px;" type="date" name="workdate" id="" value="2021-04-04" size="25px"/></li>
+								<li>工作时间:<input style="width: 70px;" type="time" name="worktime" id="" value="10:00" />~<input type="time" name="worktime2" id="" value="12:00" /></li>
+								<li>
+									<br>
+									<button type="submit" class="btn btn-default">保存</button>
+								</li>
+							</ul>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	<script type="text/javascript">
+		var first_keywords = {};
+		first_keywords['清除杂草']=["草甘膦", "百草枯", "稳杀得", "拿扑净", "割草机"];
+		first_keywords['化肥施肥']=['氮肥', '磷肥', '钾肥','钙肥', '厩肥'];
+		first_keywords['幼树管理']=['滴水灌溉', '抹芽摘心', '试花结果', '果树防冻'];
+		first_keywords['果树管理']=['滴水灌溉', '树体整形', '树枝修剪','保❀保果', '疏花疏果','果树防冻'];
+		function change_second_keywords(){
+			// debugger
+			var tget1 = document.getElementById('first');
+			var tget2 = document.getElementById('second');
+			// 得到第一个下拉框的内容
+			var selected_initial = tget1.options[tget1.selectedIndex].value;
+			console.log("selected_initial:",selected_initial);
+			// 清空次级下拉框的内容
+			while(tget2.options.length){
+				tget2.remove(0);
+			}
+			// 根据第一个下拉框的内容找第二个下拉框的内容
+			var second_list = first_keywords[selected_initial];
+			console.log("second_list:",second_list);
+			if(second_list){
+				for (var i=0; i<second_list.length; i++) {
+					var item = new Option(second_list[i], i);
+					console.log("item:",item);
+					// 设置item的value值
+					item.value = second_list[i];
+					console.log("item:",item);
+					tget2.options.add(item);
+				}
+			}
+		}
+	</script>
+</body>
+</html>

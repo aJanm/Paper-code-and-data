@@ -1,0 +1,32 @@
+@charset "utf-8";
+*{
+    margin: 0;
+    padding: 0;
+}
+.header{
+    width: 100%;
+    height: 30px;
+    /* background: #eeeff1; */
+    background:rgb(242,242,242);
+}
+.header .content{
+    width: 800px;
+    height: 100%;
+    margin: 0 auto;
+}
+.header .content ul{
+    list-style: none;
+    height: 30px;
+    line-height: 30px;
+}
+.header .content ul li{
+    float: left;
+    color:beige;
+    font-size: 13px;
+
+}
+.header .content ul li a{
+    text-decoration: none;
+    margin: 0 15px;
+    cursor: pointer;
+}

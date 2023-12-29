@@ -1,0 +1,88 @@
+<%-include head.ejs%>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-2">
+			<%-include navLeft.ejs%>
+		</div>
+		<div class="col-sm-10">
+			<!-- Bootstrap 中的面包屑导航（Breadcrumbs）是一个
+			简单的带有 .breadcrumb class 的无序列表.分隔符会通过 
+			CSS（bootstrap.min.css）中下面所示的 class 自动被添加： -->
+			<ol class="breadcrumb">
+				<li>System data management</li>
+				<li>Data manipulation</li>
+			</ol>
+			<div class="panel panel-default">
+				<div class="panel-heading" style="background-color:rgb(233,255,253)">
+					Data manipulation
+				</div>
+				<div class="panel-body">
+					<!-- 使用bootstrap创建表单的方法：
+						1 向父 <form> 元素添加 role="form"。
+						2 把标签和控件放在一个带有 class .form-group 的 <div> 中。
+						这是获取最佳间距所必需的。
+						3 向所有的文本元素 <input>、<textarea> 和 <select> 添加
+						class ="form-control" 。
+					-->
+					<form role="form" class="form-inline" action="/users/msgSearch" method="post">
+						<!-- <div class="form-group"> -->
+							<!-- for 属性规定 label 与哪个表单元素绑定。 -->
+						<!-- 	<label for="name">请输入：</label>
+							<input type="text" class="form-control" placeholder="请输入名称" name="" id="name" value="" />
+						</div> -->
+						<!-- <div class="form-group">
+							<button type="submit" class="btn btn-default" value="">搜索</button>
+						</div> -->
+					</form>
+				</div>
+				
+				<!-- 列表展示 所有内容放在类名为table-responsive的div中 -->
+				
+				<div class="table-responsive">
+					<table class="table table-striped" style="font-size:19px;font-weight: bold;">
+						<thead>
+							<tr>
+								<th width="40" style="vertical-align: middle;">No</th>
+								<th width="40">Turbidity (NTU)</th>
+								<th width="10%">Temperature (℃)</th>
+								<th width="5%">PH (-)</th>
+								<!-- 2022年9月29日 -->
+								<th width="15%">Conductivity (us/cm)</th>
+								<th width="40">TDS (ppm)</th>
+								<th width="13%" style="vertical-align: middle;">Test date</th>
+								<th width="40">Test time</th>
+								<th width="40" style="vertical-align: middle;">Data Description</th>
+								<!-- class="text-center":文本居中对齐 -->
+								<th class="text-center" width="40" style="vertical-align: middle;">Operation</th>
+							</tr>
+						</thead>
+						
+						<!-- 2022年9月29日不要在for里面添加注释，否则网页加载数据失败。 -->
+						<tbody>
+							<% for(var j=0; j<arrays.length; j++){ %>
+								<tr>
+									<td><%= j+1 %></td>
+									<td><%= arrays[j].temperature%></td>
+									<td><%= arrays[j].humidity%></td>
+									<td><%= arrays[j].light %></td>
+									<td><%= arrays[j].ec %></td>
+									<td><%= arrays[j].tds %></td>
+									<td><%= arrays[j].testdate%></td>
+									<td><%= arrays[j].testtime%></td>
+									<td><%= arrays[j].description%></td>
+									<td class="text-center">
+										<a href="/msgEdit?id=<%=arrays[j]._id%>" class="btn btn-success" style="font-size: 17px; font-weight: bold;">Update</a>
+										<a href="/msgDel?id=<%=arrays[j]._id%>" class="btn btn-danger" style="font-size: 17px; font-weight: bold;" >Delete</a>
+									</td>
+								</tr>
+							<% } %>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

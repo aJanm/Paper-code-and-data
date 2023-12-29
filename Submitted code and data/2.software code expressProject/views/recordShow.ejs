@@ -1,0 +1,73 @@
+<%-include head.ejs%>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-2">
+			<%-include navLeft.ejs%>
+		</div>
+		<div class="col-sm-10">
+			<!-- Bootstrap 中的面包屑导航（Breadcrumbs）是一个
+			简单的带有 .breadcrumb class 的无序列表.分隔符会通过 
+			CSS（bootstrap.min.css）中下面所示的 class 自动被添加： -->
+			<ol class="breadcrumb">
+				<li>农事管理</li>
+				<li>数据操作</li>
+			</ol>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					数据操作
+				</div>
+				<div class="panel-body">
+					<!-- 使用bootstrap创建表单的方法：
+						1 向父 <form> 元素添加 role="form"。
+						2 把标签和控件放在一个带有 class .form-group 的 <div> 中。
+						这是获取最佳间距所必需的。
+						3 向所有的文本元素 <input>、<textarea> 和 <select> 添加
+						class ="form-control" 。
+					-->
+					
+				</div>
+				
+				<!-- 列表展示 所有内容放在类名为table-responsive的div中 -->
+				
+				<div class="table-responsive">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>编号</th>
+								<th>果园编号</th>
+								<th>作业项目</th>
+								<th>具体项目</th>
+								<th>作业日期</th>
+								<th>开始时间</th>
+								<th>结束时间</th>
+								<!-- class="text-center":文本居中对齐 -->
+								<th class="text-center">操作</th>
+							</tr>
+						</thead>
+						
+						<tbody>
+							<% for(var j=0; j<arrays.length; j++){ %>
+								<tr>
+									<td><%= j+1 %></td>
+									<td><%= arrays[j].orchard%></td>
+									<td><%= arrays[j].firstWork%></td>
+									<td><%= arrays[j].secondWork %></td>
+									<td><%= arrays[j].workdate%></td>
+									<td><%= arrays[j].worktime%></td>
+									<td><%= arrays[j].worktime2%></td>
+									<td class="text-center">
+										<a href="/recordEdit?id=<%=arrays[j]._id%>" class="btn btn-success">修改</a>
+										<a href="/recordDel?id=<%=arrays[j]._id%>" class="btn btn-danger">删除</a>
+									</td>
+								</tr>
+							<% } %>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

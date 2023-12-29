@@ -1,0 +1,63 @@
+
+.guobiaoAdd {
+    
+    /* max-height: 700px; */
+    background-color: rgba(255, 255, 255, .05);
+    /* transform: translate(-50%, -50%); */
+    border-radius: 10px;
+    /* box-shadow: 0 0 5px #000; */
+    /* text-align: center; */
+    font-family: "微软雅黑";
+    color: rgb(102, 65, 65);
+    /* https://blog.csdn.net/m0_55673399/article/details/125997552 */
+    /* 2022年9月29日
+    给父元素设置为伸缩盒 dispaly:flex 子元素使用margin：auto */
+    /* display: grid; */
+}
+
+.txtb {
+    border: 1px solid rgb(130, 196, 220);
+    margin: 4px 0;
+    /* margin: 4px auto; */
+    padding: 5px 7px;
+    border-radius: 10px;
+    width: 380px;
+    
+}
+.txtb label {
+    display: block;
+    text-align: left;
+    color:rgb(23, 23, 14);
+    font-size: 14px;
+}
+
+.txtb input,
+.txtb textarea {
+    width: 100%;
+    background: none;
+    border: none;
+    outline: none;
+    margin-top: 1px;
+    font-size: 18px;
+    color: rgb(29, 22, 22);
+}
+.txtb textarea{
+    max-height: 150px;
+}
+
+
+/*提交按钮样式*/
+.add_btn {
+    display: block;
+    /* background-color: rgba(156, 39, 176, .5); */
+    padding: 7px 0;
+    color: rgb(29, 22, 22);
+    cursor: pointer;
+    margin-top: 4px;
+    width: 380px;
+    border: 1px solid rgb(130, 196, 220);
+    border-radius: 10px;
+    text-align: center;
+    font-size: 14px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}

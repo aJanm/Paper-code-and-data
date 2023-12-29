@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title style="color: black;"><%= title %></title>
+    <!-- <link rel='stylesheet' href='/stylesheets/style.css' /> -->
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="/stylesheets/bootstrap.css" rel="stylesheet"/>
+    <link href="/stylesheets/my.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/stylesheets/header.css">
+    <link rel="stylesheet" href="/stylesheets/navBar.css">
+    <!--
+        注意引入css文件时，要使用link属性，而不是script，并且link一般单独出现
+    -->
+    
+    <!-- <style type="text/css">
+      
+    </style> -->
+    <style type="text/css">
+      .background{
+          margin: 0;
+          padding: 0;
+          background: url("/images/orange3.jpg") no-repeat center 0px;
+          background-size: cover;  
+          background-position: center 0;
+          background-attachment: fixed;
+
+          -webkit-background-size: cover;  
+          -o-background-size: cover;  
+          -moz-background-size: cover;  
+          -ms-background-size: cover;
+          /* no-repeat:保证当屏幕缩小时，不会有多张背景图片出现
+          background-attachment: fixed;保证在使用no-repeat后，即不会有多张背景图片出现时，当屏幕缩小时下方不会出现白边
+          background-size: cover保证-把背景图片放大到适合元素容器的尺寸，图片比例不变，
+          但是要注意，超出容器的部分可能会裁掉。
+          倒数四句是为了保证兼容性
+           */
+      }
+  </style>
+  <script src="/javascripts/bootstrap.js"></script>
+  <script src="/javascripts/jquery-1.12.4.js"></script>
+  <script src="/javascripts/echarts.min.js"></script>
+  <script src="/javascripts/index.js"></script>      
+  </head>
+  
+  <!-- <body class="background">
+    
+    
+        
+  </body> -->
+  <frameset rows="25%,75%" class="background">
+    <frame src="text.html" >
+		<frame src="header.ejs" name="rightframe" >
+  </frameset>
+</html>

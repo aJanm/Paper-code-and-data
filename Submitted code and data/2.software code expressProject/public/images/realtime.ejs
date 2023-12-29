@@ -1,0 +1,126 @@
+<%- include head.ejs %>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-lg-2 col-md-4 col-sm-6">
+			<%- include navLeft.ejs%>
+		</div>
+		<div class="col-lg-10 col-md-8 col-sm-6">
+			<ol class="breadcrumb">
+				<li>系统管理</li>
+				<li>实时显示</li>
+			</ol>
+			
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					实时显示
+				</div>
+				<div class="panel-body">
+					<div class="col-lg-4 col-md-6 col-sm-10">
+						<div class="shadow" style="width: 100%;height: 220px;">
+							<img class="shadow-img" src="/images/oranges3.png" >
+							<div class="content">
+								<div class="showMeg">
+									<p class="title">
+										通过各式传感器采集脐橙生长环境相关数据；同时将数据按不同类型分类记录在数据库并以可视化形式实时显示；
+										果农根据采集到的数据再进行灌溉、施肥的决策，进而通过系统控制设备来远程进行操作。
+									</p>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-10">
+						<div class="shadow" style="height: 220px;">
+							<div class="content">
+								<p style="font-size: larger;font-weight: bold;">主控制台</p>
+								<div class="showMeg">
+									<p class="title" style="font-weight: bold;">评判结果：</p>
+									<p id="result"></p>
+								</div>
+								<div class="showMeg">
+									<p class="title" style="font-weight: bold;">根据结果对设备进行操作：</p>
+									<select class="form-control"></select>
+								</div>
+								<div class="showMeg">
+									<button type="button" id="open" class="btn btn-info">开启</button>
+									<button type="button" id="close" class="btn btn-default">关闭</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- style：style="text-align: center;"
+					<table style="margin: auto;" >
+					当网页自适应时让内容在阴影方块居中显示
+					 -->
+					<div class="col-lg-4 col-md-6 col-sm-10">
+						<div class="shadow" style="text-align: center;height: 220px;padding-top: 70px;">
+							<table style="margin: 0 auto;" >
+								<tr>
+									<td>
+										<img src="/images/temperature3.png">
+										<div class="content">
+										    <div class="showMeg">
+										      <p class="title">温度:</p>
+										      <p style="color:black;" id="temperature"></p>
+										    </div>
+										</div>
+									</td>
+									<td>
+										<img src="/images/humidity3.png">
+										<div class="content">
+											<div class="showMeg">
+												<p class="title">湿度:</p>
+												<p style="color:black;" id="humidity"></p>
+											</div>
+										</div>
+									</td>
+									<td>
+										<img src="/images/light2.png">
+										<div class="content">
+											<div class="showMeg">
+												<p class="title">光强:</p>
+												<p style="color:black;" id="test3"></p>
+											</div>
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+						
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-10">
+						<div class="shadow">
+							<div id="temperatureChart" style="width: 100%;height:200px;">
+								温度可视化
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-10">
+						<div class="shadow">
+							<div id="humidChart" style="width: 100%;height: 200px;">
+								湿度可视化
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-10">
+						<div class="shadow">
+							<div id="lightChart" style="width: 100%;height: 200px;">
+								湿度可视化
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+			
+		</div>
+		
+	</div>
+	
+</div>
+	<script src="/javascripts/jquery-1.12.4.js"></script>
+	<script src="/javascripts/echarts.min.js"></script>
+	<script src="/javascripts/index.js"></script>      
+	<script src="/javascripts/bootstrap.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>
